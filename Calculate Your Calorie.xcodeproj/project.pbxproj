@@ -7,10 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		855D057227833AF1001E43A1 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855D057127833AF1001E43A1 /* HomeTableViewController.swift */; };
-		855D057927833D6E001E43A1 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855D057827833D6D001E43A1 /* PhotoViewController.swift */; };
 		855D057B278342E5001E43A1 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855D057A278342E5001E43A1 /* AddViewController.swift */; };
-		855D057D278342F1001E43A1 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855D057C278342F1001E43A1 /* HistoryViewController.swift */; };
 		855D058027834682001E43A1 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855D057E27834682001E43A1 /* Item+CoreDataClass.swift */; };
 		855D058127834682001E43A1 /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855D057F27834682001E43A1 /* Item+CoreDataProperties.swift */; };
 		8578A1EF27819B1F004D8638 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8578A1EE27819B1F004D8638 /* AppDelegate.swift */; };
@@ -23,6 +20,8 @@
 		8578A20927819B21004D8638 /* Calculate_Your_CalorieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8578A20827819B21004D8638 /* Calculate_Your_CalorieTests.swift */; };
 		8578A21327819B21004D8638 /* Calculate_Your_CalorieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8578A21227819B21004D8638 /* Calculate_Your_CalorieUITests.swift */; };
 		8578A21527819B21004D8638 /* Calculate_Your_CalorieUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8578A21427819B21004D8638 /* Calculate_Your_CalorieUITestsLaunchTests.swift */; };
+		85C813CF2784953700A54C7A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C813CE2784953700A54C7A /* HomeViewController.swift */; };
+		85C813D12784AC1000A54C7A /* FoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C813D02784AC1000A54C7A /* FoodTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,10 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		855D057127833AF1001E43A1 /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
-		855D057827833D6D001E43A1 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		855D057A278342E5001E43A1 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
-		855D057C278342F1001E43A1 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		855D057E27834682001E43A1 /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
 		855D057F27834682001E43A1 /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8578A1EB27819B1F004D8638 /* Calculate Your Calorie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calculate Your Calorie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +59,8 @@
 		8578A20E27819B21004D8638 /* Calculate Your CalorieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Calculate Your CalorieUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8578A21227819B21004D8638 /* Calculate_Your_CalorieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculate_Your_CalorieUITests.swift; sourceTree = "<group>"; };
 		8578A21427819B21004D8638 /* Calculate_Your_CalorieUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculate_Your_CalorieUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		85C813CE2784953700A54C7A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		85C813D02784AC1000A54C7A /* FoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,10 +91,9 @@
 		855D057327833AFC001E43A1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				855D057C278342F1001E43A1 /* HistoryViewController.swift */,
+				85C813D02784AC1000A54C7A /* FoodTableViewCell.swift */,
+				85C813CE2784953700A54C7A /* HomeViewController.swift */,
 				855D057A278342E5001E43A1 /* AddViewController.swift */,
-				855D057127833AF1001E43A1 /* HomeTableViewController.swift */,
-				855D057827833D6D001E43A1 /* PhotoViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -300,11 +297,10 @@
 				855D057B278342E5001E43A1 /* AddViewController.swift in Sources */,
 				855D058027834682001E43A1 /* Item+CoreDataClass.swift in Sources */,
 				855D058127834682001E43A1 /* Item+CoreDataProperties.swift in Sources */,
+				85C813D12784AC1000A54C7A /* FoodTableViewCell.swift in Sources */,
 				8578A1EF27819B1F004D8638 /* AppDelegate.swift in Sources */,
 				8578A1F127819B1F004D8638 /* SceneDelegate.swift in Sources */,
-				855D057227833AF1001E43A1 /* HomeTableViewController.swift in Sources */,
-				855D057927833D6E001E43A1 /* PhotoViewController.swift in Sources */,
-				855D057D278342F1001E43A1 /* HistoryViewController.swift in Sources */,
+				85C813CF2784953700A54C7A /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +344,7 @@
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		8578A1FC27819B21004D8638 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
