@@ -14,9 +14,9 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var dataLabel: UILabel!
-
-    var foods : [Food]?;
     
+    var foods : [Food]?;
+
     var managedObjectContext : NSManagedObjectContext? {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             return appDelegate.persistentContainer.viewContext
@@ -46,10 +46,22 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     }
     
     @IBAction func save(segue : UIStoryboardSegue){
-        if let source = segue.source as? AddViewController,
+        if let source = segue.source as? AddEditViewController,
            let context = self.managedObjectContext {
-            
-            if let newFood = NSEntityDescription.insertNewObject(forEntityName: "Food", into:context) as? Food {
+            if let food = source.theFood {
+            //for edit
+                food.foodname = source.foodNameTF.text!
+                food.category = source.categoryTF.text!
+                food.calories = Double(source.caloriesTF.text!) ?? 0
+                
+                food.date = source.dataLabel.text!
+                food.time = source.timeTF.text!
+                food.location = source.locationTF.text!
+                
+            } else if let newFood = NSEntityDescription.insertNewObject(forEntityName: "Food", into:context) as? Food {
+                
+                
+                
                 
                 newFood.foodname = source.foodNameTF.text!
                 newFood.category = source.categoryTF.text!
@@ -57,6 +69,17 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
                 
                 newFood.date = source.dataLabel.text!
                 newFood.time = source.timeTF.text!
+                
+                newFood.location = source.locationTF.text!
+                
+//                switch source.categoryTF.text! {
+//                case "fuirt":
+                    newFood.image = UIImage(named: "AddButton")!.pngData()
+//                     TODO
+//                default:
+//                    newFood.image = UIImage(named: "Other")!.pngData()
+//                }
+               
             }; do {
                 try context.save();
             } catch  {
@@ -76,16 +99,32 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy"
         self.dataLabel.text = dateFormatter.string(from: date)
-       
+        
+        
+        
         
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if segue.identifier == "EditSegue" {
+            if let navVC = segue.destination as? UINavigationController {
+                if let addEditVC = navVC.topViewController as? AddEditViewController {
+                    if let indexPath = tableView.indexPathForSelectedRow {
+                        if let foods = self.foods {
+                            addEditVC.theFood = foods[indexPath.row]
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     
     // MARK: - Table
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return 1
-//    }
+    //    func numberOfSections(in tableView: UITableView) -> Int {
+    //        return 1
+    //    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let foods = self.foods {
             return foods.count
@@ -102,9 +141,13 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
             cell.foodName?.text = "\(food.foodname!) -  \(food.category ?? "error")"
             cell.addDate?.text = "\(food.date ?? "error date")"
             cell.kcal?.text = "\(food.calories) kcal"
+            cell.foodImage.image = UIImage(data: food.image!)
         }
         
         return cell
     }
+    
+    
+    
     
 }

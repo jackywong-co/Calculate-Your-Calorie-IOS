@@ -1,5 +1,5 @@
 //
-//  AddViewController.swift
+//  AddEditViewController.swift
 //  Calculate Your Calorie
 //
 //  Created by Jacky Wong on 3/1/2022.
@@ -10,9 +10,14 @@ import CoreData
 import MapKit
 import CoreLocation
 
-class AddViewController: UIViewController, CLLocationManagerDelegate{
+class AddEditViewController: UIViewController, CLLocationManagerDelegate{
     
+    //for edit
     var theFood : Food?
+    
+    
+    let category = ["Grains","Vegetables","Protein","Fruits"]
+    var categoryPicker = UIPickerView()
     
     var managedObjectContext : NSManagedObjectContext? {
         if let delegate = UIApplication.shared.delegate as? AppDelegate {
@@ -39,10 +44,18 @@ class AddViewController: UIViewController, CLLocationManagerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        categoryPicker.delegate = self
+        categoryPicker.dataSource = self
+        self.categoryTF.inputView = categoryPicker
+
+        
         dateFormatter.dateFormat = "dd-MM-yyyy"
         
         print(dateFormatter.string(from: date))
         self.dataLabel.text = dateFormatter.string(from: date)
+        
+        
+        
         
         //        time picker
         let timePicker = UIDatePicker()
@@ -72,8 +85,27 @@ class AddViewController: UIViewController, CLLocationManagerDelegate{
                 
             }
         }
+        
+        
+        self.locationTF.isEnabled = false
+        
+        
+        
+        
+        
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //for edit
+        if let food = theFood {
+            self.foodNameTF.text = food.foodname!
+            self.categoryTF.text = food.category!
+            self.caloriesTF.text = String(food.calories)
+            self.dataLabel.text = food.date!
+            self.timeTF.text = food.time!
+//            self.companyTF.text = food.location!
+    } }
     
     @objc func viewTapped(gestureRecognizer : UITapGestureRecognizer){
         view.endEditing(true)
@@ -152,4 +184,24 @@ class AddViewController: UIViewController, CLLocationManagerDelegate{
     }
     
     
+    
+}
+
+
+
+extension AddEditViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func numberOfComponents(in categoryPicker: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(_ categoryPicker: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return category.count
+    }
+    func pickerView(_ categoryPicker: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return category[row]
+    }
+    func pickerView(_ categoryPicker: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.categoryTF.text = category[row]
+        self.categoryTF.resignFirstResponder()
+    }
 }

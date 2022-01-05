@@ -89,7 +89,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="AddButton"/>
                                 <connections>
-                                    <segue destination="0gK-tv-Jmv" kind="show" identifier="NewSegue" id="EA4-3R-fg8"/>
+                                    <segue destination="hFe-mw-5EF" kind="presentation" identifier="NewSegue" modalPresentationStyle="fullScreen" id="U3H-wR-QUd"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ldj-UI-cW4">
@@ -175,6 +175,7 @@
                                             <outlet property="foodImage" destination="Zs1-ff-55g" id="UJa-ij-11u"/>
                                             <outlet property="foodName" destination="bzb-hH-gNp" id="XlX-fW-bQh"/>
                                             <outlet property="kcal" destination="8OT-oA-5le" id="Bob-6N-jBv"/>
+                                            <segue destination="hFe-mw-5EF" kind="presentation" identifier="EditSegue" modalPresentationStyle="fullScreen" id="7lN-fA-HgE"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -211,10 +212,27 @@
             </objects>
             <point key="canvasLocation" x="-397.10144927536237" y="-328.125"/>
         </scene>
-        <!--Add View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="LmT-Ce-RvU">
+            <objects>
+                <navigationController id="hFe-mw-5EF" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="3tD-In-VkX"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="C32-Aq-lWm">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="0gK-tv-Jmv" kind="relationship" relationship="rootViewController" id="e2i-WW-0kH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OJ4-0j-NBR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="483" y="-328"/>
+        </scene>
+        <!--Add Edit View Controller-->
         <scene sceneID="A0F-93-Hk1">
             <objects>
-                <viewController id="0gK-tv-Jmv" customClass="AddViewController" customModule="Calculate_Your_Calorie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0gK-tv-Jmv" customClass="AddEditViewController" customModule="Calculate_Your_Calorie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tt4-z3-EwG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -383,9 +401,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="nsy-hV-fzQ">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="v67-TL-Vk4">
+                            <connections>
+                                <segue destination="o48-KL-X3U" kind="unwind" unwindAction="cancelWithSegue:" id="cZ2-eA-zUV"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="vT3-Hd-HZf">
                             <connections>
-                                <segue destination="o48-KL-X3U" kind="unwind" unwindAction="saveWithSegue:" id="VeL-Nb-F9n"/>
+                                <segue destination="o48-KL-X3U" kind="unwind" unwindAction="saveWithSegue:" id="mpy-PD-DPL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -402,9 +425,12 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TRX-s0-TL4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="o48-KL-X3U" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="534.78260869565224" y="-328.125"/>
+            <point key="canvasLocation" x="1303" y="-328"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="7lN-fA-HgE"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="AddButton" width="75" height="75"/>
         <image name="DetectButton1x" width="75" height="75"/>
