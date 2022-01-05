@@ -118,9 +118,8 @@ class AddViewController: UIViewController, CLLocationManagerDelegate{
             
             fetchCityAndCountry(from: location) { city, country, error in
                 guard let city = city, let country = country, error == nil else { return }
-                self.locationTF.text = "\(city)"
+                self.locationTF.text = "\(city), \(country)"
             }
-            
         }
     }
     
