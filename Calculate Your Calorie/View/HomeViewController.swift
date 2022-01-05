@@ -54,9 +54,9 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
                 newFood.foodname = source.foodNameTF.text!
                 newFood.category = source.categoryTF.text!
                 newFood.calories = Double(source.caloriesTF.text!) ?? 0
-
+                
                 newFood.date = source.dataLabel.text!
-            
+                newFood.time = source.timeTF.text!
             }; do {
                 try context.save();
             } catch  {

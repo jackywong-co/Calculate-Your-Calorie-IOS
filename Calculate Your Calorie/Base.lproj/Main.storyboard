@@ -220,21 +220,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DxU-vX-lxm">
-                                <rect key="frame" x="20" y="88" width="374" height="65"/>
+                                <rect key="frame" x="20" y="88" width="374" height="55"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAG-Cy-dPY">
-                                        <rect key="frame" x="0.0" y="0.0" width="40" height="65"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="34" height="55"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="YAG-Cy-dPY" secondAttribute="height" multiplier="8:13" id="hXL-sH-G28"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="LeftButton"/>
+                                        <connections>
+                                            <action selector="minusDateButton:" destination="0gK-tv-Jmv" eventType="touchUpInside" id="Xik-xb-1QI"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3dN-2c-EDW">
-                                        <rect key="frame" x="40" y="0.0" width="294" height="65"/>
+                                        <rect key="frame" x="34" y="0.0" width="306" height="55"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iki-Jx-4kf">
-                                                <rect key="frame" x="0.0" y="0.0" width="294" height="30"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iki-Jx-4kf">
+                                                <rect key="frame" x="0.0" y="0.0" width="306" height="31"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Iki-Jx-4kf" secondAttribute="height" multiplier="49:5" id="Myy-yU-rfj"/>
                                                 </constraints>
@@ -242,29 +245,31 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ae7-YI-6zQ">
-                                                <rect key="frame" x="0.0" y="30" width="294" height="35"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QU5-HN-RMD">
+                                                <rect key="frame" x="0.0" y="31" width="306" height="24"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="ae7-YI-6zQ" secondAttribute="height" multiplier="42:5" id="DbD-Ds-BQ3"/>
+                                                    <constraint firstAttribute="width" secondItem="QU5-HN-RMD" secondAttribute="height" multiplier="51:4" id="GEo-gM-T4f"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bpn-1N-bfo">
-                                        <rect key="frame" x="334" y="0.0" width="40" height="65"/>
+                                        <rect key="frame" x="340" y="0.0" width="34" height="55"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Bpn-1N-bfo" secondAttribute="height" multiplier="8:13" id="Ips-Hh-22m"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="RightButton"/>
+                                        <connections>
+                                            <action selector="addDateButton:" destination="0gK-tv-Jmv" eventType="touchUpInside" id="uod-gg-u16"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="c2C-cq-7l8">
-                                <rect key="frame" x="20" y="161" width="374" height="110"/>
+                                <rect key="frame" x="20" y="151" width="374" height="390"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ttg-pd-BSr">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="76"/>
@@ -297,7 +302,7 @@
                                         <directionalEdgeInsets key="directionalLayoutMargins" top="0.0" leading="0.0" bottom="8" trailing="0.0"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aHx-zH-ZdX">
-                                        <rect key="frame" x="0.0" y="76" width="374" height="34"/>
+                                        <rect key="frame" x="0.0" y="76" width="374" height="42"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kcal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iTi-dF-SuX">
                                                 <rect key="frame" x="0.0" y="0.0" width="90" height="34"/>
@@ -314,8 +319,42 @@
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                         </subviews>
+                                        <directionalEdgeInsets key="directionalLayoutMargins" top="0.0" leading="0.0" bottom="8" trailing="0.0"/>
                                     </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xcc-At-wOs">
+                                        <rect key="frame" x="0.0" y="118" width="374" height="42"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uhs-Ej-vlh">
+                                                <rect key="frame" x="0.0" y="0.0" width="90" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Uhs-Ej-vlh" secondAttribute="height" multiplier="45:17" id="RQy-8a-FYN"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PCp-MS-yre">
+                                                <rect key="frame" x="90" y="0.0" width="284" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="34" id="Rh5-le-URy"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                            </textField>
+                                        </subviews>
+                                        <directionalEdgeInsets key="directionalLayoutMargins" top="0.0" leading="0.0" bottom="8" trailing="0.0"/>
+                                    </stackView>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="RjT-oN-4NT">
+                                        <rect key="frame" x="0.0" y="160" width="374" height="230"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="RjT-oN-4NT" secondAttribute="height" multiplier="187:115" id="7OR-1v-dHn"/>
+                                        </constraints>
+                                    </mapView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="RjT-oN-4NT" secondAttribute="bottom" id="GL4-dL-n1z"/>
+                                    <constraint firstItem="RjT-oN-4NT" firstAttribute="top" secondItem="xcc-At-wOs" secondAttribute="bottom" id="N3F-cK-nqm"/>
+                                </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kFg-LC-y9f">
                                 <rect key="frame" x="169.5" y="777" width="75" height="75"/>
@@ -355,13 +394,15 @@
                         <outlet property="categoryTF" destination="N8D-bb-vbI" id="GFu-I3-WxT"/>
                         <outlet property="dataLabel" destination="Iki-Jx-4kf" id="Y3F-Qi-nsr"/>
                         <outlet property="foodNameTF" destination="TQD-eI-ci0" id="OGO-HW-GO4"/>
-                        <outlet property="timeLabel" destination="ae7-YI-6zQ" id="4dy-71-8vI"/>
+                        <outlet property="locationTF" destination="PCp-MS-yre" id="h2G-Om-yIs"/>
+                        <outlet property="mapView" destination="RjT-oN-4NT" id="WpC-Cn-kkM"/>
+                        <outlet property="timeTF" destination="QU5-HN-RMD" id="wrX-Sa-owX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TRX-s0-TL4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="o48-KL-X3U" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="536" y="-328"/>
+            <point key="canvasLocation" x="534.78260869565224" y="-328.125"/>
         </scene>
     </scenes>
     <resources>
