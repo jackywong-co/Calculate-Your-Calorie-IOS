@@ -1,8 +1,8 @@
 //
-//  Item+CoreDataProperties.swift
+//  Food+CoreDataProperties.swift
 //  Calculate Your Calorie
 //
-//  Created by Jacky Wong on 3/1/2022.
+//  Created by Jacky Wong on 5/1/2022.
 //
 //
 
@@ -21,8 +21,8 @@ extension Food {
     @NSManaged public var date: String?
     @NSManaged public var foodname: String?
     @NSManaged public var id: UUID?
-    @NSManaged public var period: String?
     @NSManaged public var image: Data?
+    @NSManaged public var time: String?
 
 }
 

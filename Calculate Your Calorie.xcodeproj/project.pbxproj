@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		855D057B278342E5001E43A1 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855D057A278342E5001E43A1 /* AddViewController.swift */; };
-		855D058027834682001E43A1 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855D057E27834682001E43A1 /* Item+CoreDataClass.swift */; };
-		855D058127834682001E43A1 /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855D057F27834682001E43A1 /* Item+CoreDataProperties.swift */; };
+		8560BB3427857935003C598D /* Food+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8560BB3227857935003C598D /* Food+CoreDataClass.swift */; };
+		8560BB3527857935003C598D /* Food+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8560BB3327857935003C598D /* Food+CoreDataProperties.swift */; };
+		8560BB3927857E27003C598D /* FoodClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 8560BB3827857E27003C598D /* FoodClassifier.mlmodel */; };
 		8578A1EF27819B1F004D8638 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8578A1EE27819B1F004D8638 /* AppDelegate.swift */; };
 		8578A1F127819B1F004D8638 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8578A1F027819B1F004D8638 /* SceneDelegate.swift */; };
 		8578A1F327819B1F004D8638 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8578A1F227819B1F004D8638 /* ViewController.swift */; };
@@ -43,8 +44,9 @@
 
 /* Begin PBXFileReference section */
 		855D057A278342E5001E43A1 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
-		855D057E27834682001E43A1 /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
-		855D057F27834682001E43A1 /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8560BB3227857935003C598D /* Food+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8560BB3327857935003C598D /* Food+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8560BB3827857E27003C598D /* FoodClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FoodClassifier.mlmodel; sourceTree = "<group>"; };
 		8578A1EB27819B1F004D8638 /* Calculate Your Calorie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calculate Your Calorie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8578A1EE27819B1F004D8638 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8578A1F027819B1F004D8638 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,8 +103,8 @@
 		855D0582278346DC001E43A1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				855D057E27834682001E43A1 /* Item+CoreDataClass.swift */,
-				855D057F27834682001E43A1 /* Item+CoreDataProperties.swift */,
+				8560BB3227857935003C598D /* Food+CoreDataClass.swift */,
+				8560BB3327857935003C598D /* Food+CoreDataProperties.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -130,6 +132,7 @@
 		8578A1ED27819B1F004D8638 /* Calculate Your Calorie */ = {
 			isa = PBXGroup;
 			children = (
+				8560BB3827857E27003C598D /* FoodClassifier.mlmodel */,
 				855D0582278346DC001E43A1 /* Model */,
 				855D057327833AFC001E43A1 /* View */,
 				8578A1EE27819B1F004D8638 /* AppDelegate.swift */,
@@ -295,12 +298,13 @@
 				8578A1F327819B1F004D8638 /* ViewController.swift in Sources */,
 				8578A1F927819B1F004D8638 /* Calculate_Your_Calorie.xcdatamodeld in Sources */,
 				855D057B278342E5001E43A1 /* AddViewController.swift in Sources */,
-				855D058027834682001E43A1 /* Item+CoreDataClass.swift in Sources */,
-				855D058127834682001E43A1 /* Item+CoreDataProperties.swift in Sources */,
 				85C813D12784AC1000A54C7A /* FoodTableViewCell.swift in Sources */,
 				8578A1EF27819B1F004D8638 /* AppDelegate.swift in Sources */,
 				8578A1F127819B1F004D8638 /* SceneDelegate.swift in Sources */,
 				85C813CF2784953700A54C7A /* HomeViewController.swift in Sources */,
+				8560BB3927857E27003C598D /* FoodClassifier.mlmodel in Sources */,
+				8560BB3427857935003C598D /* Food+CoreDataClass.swift in Sources */,
+				8560BB3527857935003C598D /* Food+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,7 +412,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -463,7 +467,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

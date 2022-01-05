@@ -74,7 +74,11 @@
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="S47-HI-XZL" firstAttribute="top" secondItem="vfc-IH-epP" secondAttribute="top" id="1be-zP-pni"/>
+                                    <constraint firstItem="br2-xS-738" firstAttribute="leading" secondItem="S47-HI-XZL" secondAttribute="trailing" constant="11" id="9By-wc-pbX"/>
                                     <constraint firstAttribute="width" secondItem="vfc-IH-epP" secondAttribute="height" multiplier="374:65" id="Ana-7X-jxL"/>
+                                    <constraint firstItem="S47-HI-XZL" firstAttribute="leading" secondItem="RL4-I7-6l5" secondAttribute="trailing" constant="11" id="HOv-X9-u4i"/>
+                                    <constraint firstAttribute="bottom" secondItem="S47-HI-XZL" secondAttribute="bottom" id="bsi-h9-xxb"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OMh-ee-gPi">
@@ -137,20 +141,28 @@
                                             <constraints>
                                                 <constraint firstItem="8OT-oA-5le" firstAttribute="leading" secondItem="bzb-hH-gNp" secondAttribute="trailing" id="3BU-Qr-7rU"/>
                                                 <constraint firstItem="8OT-oA-5le" firstAttribute="leading" secondItem="bzb-hH-gNp" secondAttribute="trailing" id="4ef-k0-U9U"/>
+                                                <constraint firstAttribute="bottom" secondItem="cSV-5n-dz3" secondAttribute="bottom" constant="5" id="51q-Lh-nXI"/>
                                                 <constraint firstItem="bzb-hH-gNp" firstAttribute="leading" secondItem="Zs1-ff-55g" secondAttribute="trailing" id="8WX-8V-6xI"/>
                                                 <constraint firstItem="cSV-5n-dz3" firstAttribute="top" secondItem="bzb-hH-gNp" secondAttribute="bottom" id="8ob-ON-nli"/>
+                                                <constraint firstItem="8OT-oA-5le" firstAttribute="leading" secondItem="cSV-5n-dz3" secondAttribute="trailing" id="94l-KL-rFd"/>
                                                 <constraint firstItem="8OT-oA-5le" firstAttribute="leading" secondItem="cSV-5n-dz3" secondAttribute="trailing" id="9fo-tD-SpV"/>
                                                 <constraint firstItem="cSV-5n-dz3" firstAttribute="top" secondItem="bzb-hH-gNp" secondAttribute="bottom" id="CEJ-hm-3OF"/>
+                                                <constraint firstItem="cSV-5n-dz3" firstAttribute="top" secondItem="bzb-hH-gNp" secondAttribute="bottom" id="CQA-Jm-8Ix"/>
                                                 <constraint firstAttribute="bottom" secondItem="8OT-oA-5le" secondAttribute="bottom" constant="5" id="EK5-0K-zVu"/>
                                                 <constraint firstItem="Zs1-ff-55g" firstAttribute="leading" secondItem="c9F-Kg-QzA" secondAttribute="leading" constant="20" id="GVf-er-IGw"/>
                                                 <constraint firstAttribute="bottom" secondItem="cSV-5n-dz3" secondAttribute="bottom" constant="5" id="OyL-80-yBt"/>
                                                 <constraint firstItem="cSV-5n-dz3" firstAttribute="leading" secondItem="Zs1-ff-55g" secondAttribute="trailing" id="Qeo-QN-nit"/>
+                                                <constraint firstItem="cSV-5n-dz3" firstAttribute="top" secondItem="bzb-hH-gNp" secondAttribute="bottom" id="RSv-qF-D4S"/>
+                                                <constraint firstItem="cSV-5n-dz3" firstAttribute="leading" secondItem="Zs1-ff-55g" secondAttribute="trailing" id="V4R-eR-P70"/>
+                                                <constraint firstItem="bzb-hH-gNp" firstAttribute="top" secondItem="c9F-Kg-QzA" secondAttribute="top" constant="5" id="Voy-sL-oeN"/>
                                                 <constraint firstAttribute="trailing" secondItem="8OT-oA-5le" secondAttribute="trailing" constant="20" id="Xiw-Pk-Yec"/>
                                                 <constraint firstAttribute="bottom" secondItem="Zs1-ff-55g" secondAttribute="bottom" constant="5" id="Xku-93-zEU"/>
                                                 <constraint firstItem="Zs1-ff-55g" firstAttribute="top" secondItem="c9F-Kg-QzA" secondAttribute="top" constant="5" id="aRr-7Y-S2b"/>
                                                 <constraint firstItem="8OT-oA-5le" firstAttribute="top" secondItem="c9F-Kg-QzA" secondAttribute="top" constant="5" id="aWc-1L-x1t"/>
                                                 <constraint firstItem="bzb-hH-gNp" firstAttribute="top" secondItem="c9F-Kg-QzA" secondAttribute="top" constant="5" id="haI-fP-WXW"/>
+                                                <constraint firstItem="8OT-oA-5le" firstAttribute="leading" secondItem="bzb-hH-gNp" secondAttribute="trailing" id="kXL-w0-zIs"/>
                                                 <constraint firstItem="cSV-5n-dz3" firstAttribute="top" secondItem="bzb-hH-gNp" secondAttribute="bottom" id="l8S-vo-iTt"/>
+                                                <constraint firstItem="bzb-hH-gNp" firstAttribute="leading" secondItem="Zs1-ff-55g" secondAttribute="trailing" id="rY4-lI-gHZ"/>
                                                 <constraint firstItem="bzb-hH-gNp" firstAttribute="leading" secondItem="Zs1-ff-55g" secondAttribute="trailing" id="srd-x2-eGa"/>
                                                 <constraint firstItem="cSV-5n-dz3" firstAttribute="top" secondItem="bzb-hH-gNp" secondAttribute="bottom" id="tI2-SM-GGU"/>
                                                 <constraint firstItem="cSV-5n-dz3" firstAttribute="leading" secondItem="Zs1-ff-55g" secondAttribute="trailing" id="uxg-xC-Twc"/>
@@ -166,6 +178,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="A8d-0C-owa" id="PoD-xj-Kpg"/>
+                                    <outlet property="delegate" destination="A8d-0C-owa" id="hCQ-C0-kIr"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5Te-S0-6If"/>
@@ -187,6 +203,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="search" id="KAA-Ar-V5k"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="dataLabel" destination="T3I-0Y-di8" id="lGx-y3-bas"/>
                         <outlet property="tableView" destination="ldj-UI-cW4" id="QsA-PN-6Lw"/>
                     </connections>
                 </viewController>
@@ -294,7 +311,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5cz-XE-HUs">
                                                 <rect key="frame" x="90" y="0.0" width="284" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -307,6 +324,9 @@
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="DetectButton1x"/>
+                                <connections>
+                                    <action selector="takePicture" destination="0gK-tv-Jmv" eventType="touchUpInside" id="U5S-yQ-Tv8"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rvi-ir-LAD"/>
@@ -333,7 +353,9 @@
                     <connections>
                         <outlet property="caloriesTF" destination="5cz-XE-HUs" id="I5p-C5-A5W"/>
                         <outlet property="categoryTF" destination="N8D-bb-vbI" id="GFu-I3-WxT"/>
+                        <outlet property="dataLabel" destination="Iki-Jx-4kf" id="Y3F-Qi-nsr"/>
                         <outlet property="foodNameTF" destination="TQD-eI-ci0" id="OGO-HW-GO4"/>
+                        <outlet property="timeLabel" destination="ae7-YI-6zQ" id="4dy-71-8vI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TRX-s0-TL4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

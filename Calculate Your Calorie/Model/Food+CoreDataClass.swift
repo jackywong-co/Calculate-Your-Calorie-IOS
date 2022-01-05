@@ -1,8 +1,8 @@
 //
-//  Item+CoreDataClass.swift
+//  Food+CoreDataClass.swift
 //  Calculate Your Calorie
 //
-//  Created by Jacky Wong on 3/1/2022.
+//  Created by Jacky Wong on 5/1/2022.
 //
 //
 

@@ -7,9 +7,9 @@
         <attribute name="foodname" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="image" optional="YES" attributeType="Binary"/>
-        <attribute name="period" optional="YES" attributeType="String"/>
+        <attribute name="time" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Food" positionX="301.0360412597656" positionY="-1795.189880371094" width="128" height="134"/>
+        <element name="Food" positionX="301.0360412597656" positionY="-1795.189880371094" width="128" height="148"/>
     </elements>
 </model>

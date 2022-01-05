@@ -7,11 +7,14 @@
 
 import UIKit
 import CoreData
+import Foundation
 
 class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-  
+    
+    @IBOutlet weak var dataLabel: UILabel!
+
     var foods : [Food]?;
     
     var managedObjectContext : NSManagedObjectContext? {
@@ -47,8 +50,13 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
            let context = self.managedObjectContext {
             
             if let newFood = NSEntityDescription.insertNewObject(forEntityName: "Food", into:context) as? Food {
-                newFood.foodname = source.foodNameTF.text
-                newFood.category = source.categoryTF.text
+                
+                newFood.foodname = source.foodNameTF.text!
+                newFood.category = source.categoryTF.text!
+                newFood.calories = Double(source.caloriesTF.text!) ?? 0
+
+                newFood.date = source.dataLabel.text!
+            
             }; do {
                 try context.save();
             } catch  {
@@ -63,6 +71,14 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         super.viewDidLoad()
         self.searchAndReloadTable(query: "")
         // Do any additional setup after loading the view.
+        
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        self.dataLabel.text = dateFormatter.string(from: date)
+       
+        
+        
     }
     
     
@@ -83,9 +99,9 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         }
         
         if let food = self.foods?[indexPath.row] {
-            cell.foodName?.text = "\(food.foodname!)"
-//            cell.addDate?.text = "\(food.category!)"
-//            cell.kcal?.text = "\(food.calories)"
+            cell.foodName?.text = "\(food.foodname!) -  \(food.category ?? "error")"
+            cell.addDate?.text = "\(food.date ?? "error date")"
+            cell.kcal?.text = "\(food.calories) kcal"
         }
         
         return cell
