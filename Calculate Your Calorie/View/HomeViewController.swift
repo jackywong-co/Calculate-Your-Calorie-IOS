@@ -58,11 +58,21 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
                 food.time = source.timeTF.text!
                 food.location = source.locationTF.text!
                 
+                switch source.categoryTF.text! {
+                case "Grains":
+                    food.image = UIImage(named: "grain")!.pngData()
+                case "Vegetables":
+                    food.image = UIImage(named: "vegetable")!.pngData()
+                case "Protein":
+                    food.image = UIImage(named: "protein")!.pngData()
+                case "Fruits":
+                    food.image = UIImage(named: "fruit")!.pngData()
+                default:
+                    food.image = UIImage(named: "other")!.pngData()
+                }
+                
             } else if let newFood = NSEntityDescription.insertNewObject(forEntityName: "Food", into:context) as? Food {
-                
-                
-                
-                
+
                 newFood.foodname = source.foodNameTF.text!
                 newFood.category = source.categoryTF.text!
                 newFood.calories = Double(source.caloriesTF.text!) ?? 0
@@ -72,13 +82,18 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
                 
                 newFood.location = source.locationTF.text!
                 
-//                switch source.categoryTF.text! {
-//                case "fuirt":
-                    newFood.image = UIImage(named: "AddButton")!.pngData()
-//                     TODO
-//                default:
-//                    newFood.image = UIImage(named: "Other")!.pngData()
-//                }
+                switch source.categoryTF.text! {
+                case "Grains":
+                    newFood.image = UIImage(named: "grain")!.pngData()
+                case "Vegetables":
+                    newFood.image = UIImage(named: "vegetable")!.pngData()
+                case "Protein":
+                    newFood.image = UIImage(named: "protein")!.pngData()
+                case "Fruits":
+                    newFood.image = UIImage(named: "fruit")!.pngData()
+                default:
+                    newFood.image = UIImage(named: "other")!.pngData()
+                }
                
             }; do {
                 try context.save();
