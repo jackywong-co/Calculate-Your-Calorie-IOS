@@ -9,7 +9,7 @@ import UIKit
 import CoreData
 import Foundation
 
-class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
+class HomeViewController: UIViewController{
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -97,7 +97,8 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
                     newFood.image = UIImage(named: "other")!.pngData()
                 }
                 
-            }; do {
+            };
+            do {
                 try context.save();
             } catch  {
                 print("can't save");
@@ -142,6 +143,23 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     //    func numberOfSections(in tableView: UITableView) -> Int {
     //        return 1
     //    }
+    
+    func fetchFood(){
+        do{
+            
+            self.foods = try context.fetch(Food.fetchRequest())
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+        catch{
+            
+        }
+    }
+}
+
+
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let foods = self.foods {
             return foods.count
@@ -178,17 +196,6 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
                 
             }
             self.fetchFood()
-        }
-    }
-    func fetchFood(){
-        do{
-            self.foods = try managedObjectContext?.fetch(Food.fetchRequest())
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-        catch{
-            
         }
     }
 }
