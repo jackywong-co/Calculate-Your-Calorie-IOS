@@ -1,5 +1,7 @@
 # Calculate-Your-Calorie-IOS
 # Reference
+### delete row and core date
+- https://www.youtube.com/watch?v=gWurhFqTsPU
 ### pickerview
 - https://www.youtube.com/watch?v=FKuNwHZzJlA
 ### datepicker
