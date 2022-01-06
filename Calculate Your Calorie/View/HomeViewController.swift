@@ -16,7 +16,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     @IBOutlet weak var dataLabel: UILabel!
     
     var foods : [Food]?;
-
+    
     var managedObjectContext : NSManagedObjectContext? {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             return appDelegate.persistentContainer.viewContext
@@ -24,6 +24,8 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         return nil;
         
     }
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     
     func searchAndReloadTable(query:String){
         if let managedObjectContext = self.managedObjectContext {
@@ -49,7 +51,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         if let source = segue.source as? AddEditViewController,
            let context = self.managedObjectContext {
             if let food = source.theFood {
-            //for edit
+                //for edit
                 food.foodname = source.foodNameTF.text!
                 food.category = source.categoryTF.text!
                 food.calories = Double(source.caloriesTF.text!) ?? 0
@@ -72,7 +74,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
                 }
                 
             } else if let newFood = NSEntityDescription.insertNewObject(forEntityName: "Food", into:context) as? Food {
-
+                
                 newFood.foodname = source.foodNameTF.text!
                 newFood.category = source.categoryTF.text!
                 newFood.calories = Double(source.caloriesTF.text!) ?? 0
@@ -94,7 +96,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
                 default:
                     newFood.image = UIImage(named: "other")!.pngData()
                 }
-               
+                
             }; do {
                 try context.save();
             } catch  {
@@ -161,8 +163,32 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         
         return cell
     }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     
-    
-    
-    
+        if editingStyle == .delete {
+            // Delete object from database
+//            let appDel:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+            
+            let foodToRemove = self.foods![indexPath.row]
+            self.context.delete(foodToRemove)
+            do{
+                try self.context.save()
+            }
+            catch {
+                
+            }
+            self.fetchFood()
+        }
+    }
+    func fetchFood(){
+        do{
+            self.foods = try managedObjectContext?.fetch(Food.fetchRequest())
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+        catch{
+            
+        }
+    }
 }
