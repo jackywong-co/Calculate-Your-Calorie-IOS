@@ -8,6 +8,8 @@
 	<string>a</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>a</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>a</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>NSLocationWhenInUseUsageDescription</key>

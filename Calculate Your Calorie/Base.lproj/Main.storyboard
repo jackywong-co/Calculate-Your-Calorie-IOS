@@ -382,7 +382,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="DetectButton1x"/>
                                 <connections>
-                                    <action selector="takePicture" destination="0gK-tv-Jmv" eventType="touchUpInside" id="U5S-yQ-Tv8"/>
+                                    <action selector="takePicture" destination="0gK-tv-Jmv" eventType="touchUpInside" id="tJG-wc-6lg"/>
                                 </connections>
                             </button>
                         </subviews>
