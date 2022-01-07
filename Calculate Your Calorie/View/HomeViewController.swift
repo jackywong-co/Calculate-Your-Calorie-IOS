@@ -119,7 +119,7 @@ class HomeViewController: UIViewController{
         self.dataLabel.text = dateFormatter.string(from: date)
         
         
-        
+        fetchFood()
         
         
     }
@@ -141,7 +141,7 @@ class HomeViewController: UIViewController{
 
     func fetchFood(){
         do{
-            
+            let request = Food.fetchRequest() as NSFetchRequest<Food>
             self.foods = try context.fetch(Food.fetchRequest())
             DispatchQueue.main.async {
                 self.tableView.reloadData()
