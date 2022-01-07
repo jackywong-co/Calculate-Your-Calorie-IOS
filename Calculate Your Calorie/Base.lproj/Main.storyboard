@@ -200,9 +200,7 @@
                             <constraint firstItem="5Te-S0-6If" firstAttribute="bottom" secondItem="OMh-ee-gPi" secondAttribute="bottom" constant="10" id="sOD-hK-Rsk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="27B-B7-zxB">
-                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="KAA-Ar-V5k"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="27B-B7-zxB"/>
                     <connections>
                         <outlet property="dataLabel" destination="T3I-0Y-di8" id="lGx-y3-bas"/>
                         <outlet property="tableView" destination="ldj-UI-cW4" id="QsA-PN-6Lw"/>

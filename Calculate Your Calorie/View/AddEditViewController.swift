@@ -323,19 +323,19 @@ class AddEditViewController: UIViewController, CLLocationManagerDelegate{
                 print(descriptions)
                 self.foodNameTF.text = "\(descriptions[0])"
                 
-                switch descriptions[0] {
-                case "apple":
-                    self.caloriesTF.text = "95"
-                    
-                case "banana":
-                    self.caloriesTF.text = "105"
-                    
-                case "orange":
-                    self.caloriesTF.text = "60"
-                    
-                default:
-                    self.caloriesTF.text = ""
-                }
+//                switch descriptions[0] {
+//                case "apple":
+//                    self.caloriesTF.text = "95"
+//
+//                case "banana":
+//                    self.caloriesTF.text = "105"
+//
+//                case "orange":
+//                    self.caloriesTF.text = "60"
+//
+//                default:
+//                    self.caloriesTF.text = ""
+//                }
                 
             }
             
