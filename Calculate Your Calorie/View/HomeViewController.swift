@@ -138,12 +138,7 @@ class HomeViewController: UIViewController{
         }
     }
     
-    
-    // MARK: - Table
-    //    func numberOfSections(in tableView: UITableView) -> Int {
-    //        return 1
-    //    }
-    
+
     func fetchFood(){
         do{
             
@@ -159,6 +154,8 @@ class HomeViewController: UIViewController{
 }
 
 
+
+// MARK: - Table
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let foods = self.foods {

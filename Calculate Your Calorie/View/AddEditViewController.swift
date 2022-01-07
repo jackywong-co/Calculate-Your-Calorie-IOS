@@ -39,8 +39,8 @@ class AddEditViewController: UIViewController, CLLocationManagerDelegate{
     
     @IBOutlet weak var mapView : MKMapView!
     @IBOutlet weak var locationTF: UITextField!
-
-
+    
+    
     
     let date = Date()
     let dateFormatter = DateFormatter()
@@ -53,7 +53,7 @@ class AddEditViewController: UIViewController, CLLocationManagerDelegate{
         categoryPicker.delegate = self
         categoryPicker.dataSource = self
         self.categoryTF.inputView = categoryPicker
-
+        
         
         dateFormatter.dateFormat = "dd-MM-yyyy"
         
@@ -77,7 +77,7 @@ class AddEditViewController: UIViewController, CLLocationManagerDelegate{
         self.timeTF.text =  formatTime(date: Date())
         
         
-        
+        foodNameTF.addTarget(self, action: #selector(foodNameTFDidChange), for: UIControl.Event.editingDidEnd)
         
         // location
         if CLLocationManager.locationServicesEnabled() {
@@ -110,8 +110,8 @@ class AddEditViewController: UIViewController, CLLocationManagerDelegate{
             self.caloriesTF.text = String(food.calories)
             self.dataLabel.text = food.date!
             self.timeTF.text = food.time!
-//            self.companyTF.text = food.location!
-    } }
+            //            self.companyTF.text = food.location!
+        } }
     
     @objc func viewTapped(gestureRecognizer : UITapGestureRecognizer){
         view.endEditing(true)
@@ -127,7 +127,74 @@ class AddEditViewController: UIViewController, CLLocationManagerDelegate{
         return formatter.string(from: date)
     }
     
-    
+    // api
+    @objc func foodNameTFDidChange(){
+        print("foodNameTFDidChange ing")
+        print("\(String(describing: self.foodNameTF.text))")
+   
+                let json: [String: Any] = [  "appId": "5d7ab666",
+                                             "appKey": "85168a6ba46b687d0e4642658d138b1f",
+                                             "query": "\(String(describing: self.foodNameTF.text))",
+                                             "fields": [
+                                                 "item_name",
+                                                 "brand_name",
+                                                 "nf_calories"
+                                             ],
+                                             "sort": [
+                                                 "field": "_score",
+                                                 "order": "desc"
+                                             ]
+                ]
+        
+        var request = URLRequest(url: URL(string: "https://api.nutritionix.com/v1_1/search")!)
+        request.httpMethod = "POST"
+        request.httpBody = try? JSONSerialization.data(withJSONObject: json, options: [])
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        struct Search: Decodable {
+            let total: Int
+            let max_score: Double
+            let hits: [Hit]
+        }
+
+        // MARK: - Hit
+        struct Hit: Decodable {
+            let _index: String
+            let _type: String
+            let _id: String
+            let _score: Double
+            let fields: Fields
+        }
+
+        // MARK: - Fields
+        struct Fields: Decodable {
+            let item_name: String
+            let brand_name: String
+            let nf_calories: Double
+        }
+
+      
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let data = data {
+                do {
+                    let decoder = JSONDecoder()
+                    let searchResult = try decoder.decode(Search.self, from: data)
+                    
+                    print(searchResult.hits[0].fields)
+                    DispatchQueue.main.async {
+                    self.caloriesTF.text = String (searchResult.hits[0].fields.nf_calories)
+                    }
+                } catch  {
+                    print(error)
+                }
+            }
+        }.resume()
+        
+       
+
+        
+    }
     
     // Location
     
@@ -209,7 +276,7 @@ class AddEditViewController: UIViewController, CLLocationManagerDelegate{
         } catch {
             fatalError("Failed to perform classification.\n\(error.localizedDescription)")
         }
-       
+        
         
     }()
     
@@ -241,7 +308,7 @@ class AddEditViewController: UIViewController, CLLocationManagerDelegate{
         DispatchQueue.main.async {
             guard let results = request.results else {
                 self.foodNameTF.text = "Usable to classify image.\n\(error!.localizedDescription)"
-                    return
+                return
             }
             let classifications = results as! [VNClassificationObservation]
             
@@ -257,16 +324,16 @@ class AddEditViewController: UIViewController, CLLocationManagerDelegate{
                 self.foodNameTF.text = "\(descriptions[0])"
                 
                 switch descriptions[0] {
-                  case "apple":
+                case "apple":
                     self.caloriesTF.text = "95"
                     
-                  case "banana":
+                case "banana":
                     self.caloriesTF.text = "105"
                     
-                  case "orange":
+                case "orange":
                     self.caloriesTF.text = "60"
-                
-                  default:
+                    
+                default:
                     self.caloriesTF.text = ""
                 }
                 
