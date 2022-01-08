@@ -215,6 +215,7 @@
                     <connections>
                         <outlet property="dataLabel" destination="T3I-0Y-di8" id="lGx-y3-bas"/>
                         <outlet property="tableView" destination="ldj-UI-cW4" id="QsA-PN-6Lw"/>
+                        <outlet property="totalCaloriesLabel" destination="tfH-b1-KiP" id="vBZ-DN-rVX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hCe-hq-hHz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

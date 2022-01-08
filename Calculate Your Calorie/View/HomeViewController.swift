@@ -14,6 +14,7 @@ class HomeViewController: UIViewController{
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var dataLabel: UILabel!
+    @IBOutlet weak var totalCaloriesLabel: UILabel!
     
     var foods : [Food]?;
     
@@ -146,6 +147,11 @@ class HomeViewController: UIViewController{
         dateFormatter.dateFormat = "dd-MM-yyyy"
         self.dataLabel.text = dateFormatter.string(from: date)
         
+//        foods?.count
+//        let food = self.foods?[indexPath.row].calories
+        
+        
+
         
         // fetch the tableview
         self.fetchFood()
@@ -178,8 +184,22 @@ class HomeViewController: UIViewController{
             
             // Fetch the date from Core Date to display in the tableview
             self.foods = try context.fetch(request)
+           
+            
+            
+            
             DispatchQueue.main.async {
+                
+                var sum = 0.0
+                for index in 0..<Int(self.foods!.count){
+                 
+                    sum = sum + (Double((self.foods?[index].calories)!))
+                }
+              
+    
+               self.totalCaloriesLabel.text = "Total Calories: \(sum)"
                 self.tableView.reloadData()
+
             }
         }
         catch{

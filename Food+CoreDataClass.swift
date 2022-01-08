@@ -11,5 +11,5 @@ import CoreData
 
 @objc(Food)
 public class Food: NSManagedObject {
-
+    
 }
