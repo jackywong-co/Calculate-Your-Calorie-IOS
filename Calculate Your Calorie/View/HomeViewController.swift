@@ -12,12 +12,10 @@ import Foundation
 class HomeViewController: UIViewController{
     
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var dataLabel: UILabel!
     @IBOutlet weak var totalCaloriesLabel: UILabel!
     
     var foods : [Food]?;
-    
     var managedObjectContext : NSManagedObjectContext? {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             return appDelegate.persistentContainer.viewContext
@@ -27,10 +25,8 @@ class HomeViewController: UIViewController{
     }
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    
     @IBAction func cancel(segue : UIStoryboardSegue){
     }
-    
     @IBAction func save(segue : UIStoryboardSegue){
         if let source = segue.source as? AddEditViewController,
            let context = self.managedObjectContext {
@@ -78,32 +74,6 @@ class HomeViewController: UIViewController{
                 }
                 
             };
-                //        // Add data
-                //        if let source = segue.source as? AddEditViewController{
-                //
-                //            let newFood = Food(context: self.context)
-                //
-                //            newFood.foodname = source.foodNameTF.text!
-                //            newFood.category = source.categoryTF.text!
-                //            newFood.calories = Double(source.caloriesTF.text!) ?? 0
-                //
-                //            newFood.date = source.dataLabel.text!
-                //            newFood.time = source!.timeTF.text!
-                //
-                //            newFood.location = source!.locationTF.text!
-                //            switch source!.categoryTF.text! {
-                //            case "Grains":
-                //                newFood.image = UIImage(named: "grain")!.pngData()
-                //            case "Vegetables":
-                //                newFood.image = UIImage(named: "vegetable")!.pngData()
-                //            case "Protein":
-                //                newFood.image = UIImage(named: "protein")!.pngData()
-                //            case "Fruits":
-                //                newFood.image = UIImage(named: "fruit")!.pngData()
-                //            default:
-                //                newFood.image = UIImage(named: "other")!.pngData()
-                //            }
-                //        }
             // Save the data
             do {
                 try self.context.save();
@@ -114,13 +84,11 @@ class HomeViewController: UIViewController{
             self.fetchFood()
         }
     }
-    
+    // Change date
     let date = Date()
     let dateFormatter = DateFormatter()
     var day = 0
-    
     @IBAction func addDateButton(_ sender: Any) {
-        //        print("add")
         day += 1
         let modifiedDate = Calendar.current.date(byAdding: .day, value: day, to: date)!
         dateFormatter.dateFormat = "dd-MM-yyyy"
@@ -130,7 +98,6 @@ class HomeViewController: UIViewController{
     }
     
     @IBAction func minusDateButton(_ sender: Any) {
-        //        print("minus")
         day -= 1
         let modifiedDate = Calendar.current.date(byAdding: .day, value: day, to: date)!
         dateFormatter.dateFormat = "dd-MM-yyyy"
@@ -141,18 +108,11 @@ class HomeViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // Set date
         let date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy"
         self.dataLabel.text = dateFormatter.string(from: date)
-        
-//        foods?.count
-//        let food = self.foods?[indexPath.row].calories
-        
-        
-
-        
         // fetch the tableview
         self.fetchFood()
         
@@ -174,42 +134,28 @@ class HomeViewController: UIViewController{
     
     
     func fetchFood(){
-        
-        
         do{
-            
             let request = Food.fetchRequest() as NSFetchRequest<Food>
+            // Filter date
             request.predicate = NSPredicate(format: "date CONTAINS '\(self.dataLabel.text ?? dateFormatter.string(from: date))'")
+            // Sort time
             request.sortDescriptors = [NSSortDescriptor(key: "time", ascending: true)]
-            
             // Fetch the date from Core Date to display in the tableview
             self.foods = try context.fetch(request)
-           
-            
-            
-            
             DispatchQueue.main.async {
-                
+                // Calculate sum of calories
                 var sum = 0.0
                 for index in 0..<Int(self.foods!.count){
-                 
                     sum = sum + (Double((self.foods?[index].calories)!))
                 }
-              
-    
-               self.totalCaloriesLabel.text = "Total Calories: \(sum)"
+                self.totalCaloriesLabel.text = "Total Calories: \(sum)"
                 self.tableView.reloadData()
-
             }
         }
         catch{
-            
         }
     }
 }
-
-
-
 
 // MARK: - Table
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
@@ -244,9 +190,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
             self.context.delete(foodToRemove)
             // Save the data
             do{
-                try! self.context.save()
-            }
-            catch{
+                try self.context.save()
+            }catch{
+                print("cannot save")
             }
             // Re-fetch the data
             self.fetchFood()

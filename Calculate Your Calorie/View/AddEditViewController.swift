@@ -33,14 +33,10 @@ class AddEditViewController: UIViewController, CLLocationManagerDelegate{
     @IBOutlet weak var categoryTF: UITextField!
     @IBOutlet weak var foodNameTF: UITextField!
     @IBOutlet weak var caloriesTF: UITextField!
-    
     @IBOutlet weak var dataLabel: UILabel!
     @IBOutlet weak var timeTF: UITextField!
-    
     @IBOutlet weak var mapView : MKMapView!
     @IBOutlet weak var locationTF: UITextField!
-    
-    
     
     let date = Date()
     let dateFormatter = DateFormatter()
@@ -53,16 +49,9 @@ class AddEditViewController: UIViewController, CLLocationManagerDelegate{
         categoryPicker.delegate = self
         categoryPicker.dataSource = self
         self.categoryTF.inputView = categoryPicker
-        
-        
         dateFormatter.dateFormat = "dd-MM-yyyy"
-        
         print(dateFormatter.string(from: date))
         self.dataLabel.text = dateFormatter.string(from: date)
-        
-        
-        
-        
         //        time picker
         let timePicker = UIDatePicker()
         timePicker.datePickerMode = .time
@@ -76,7 +65,6 @@ class AddEditViewController: UIViewController, CLLocationManagerDelegate{
         self.timeTF.inputView = timePicker
         self.timeTF.text =  formatTime(date: Date())
         
-        
         foodNameTF.addTarget(self, action: #selector(foodNameTFDidChange), for: UIControl.Event.editingDidEnd)
         
         // location
@@ -88,17 +76,9 @@ class AddEditViewController: UIViewController, CLLocationManagerDelegate{
             }
             else {
                 self.setupAndStartLocationManager();
-                
             }
         }
-        
-        
         self.locationTF.isEnabled = false
-        
-        
-        
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -131,20 +111,20 @@ class AddEditViewController: UIViewController, CLLocationManagerDelegate{
     @objc func foodNameTFDidChange(){
         print("foodNameTFDidChange ing")
         print("\(String(describing: self.foodNameTF.text))")
-   
-                let json: [String: Any] = [  "appId": "5d7ab666",
-                                             "appKey": "85168a6ba46b687d0e4642658d138b1f",
-                                             "query": "\(String(describing: self.foodNameTF.text))",
-                                             "fields": [
-                                                 "item_name",
-                                                 "brand_name",
-                                                 "nf_calories"
-                                             ],
-                                             "sort": [
-                                                 "field": "_score",
-                                                 "order": "desc"
-                                             ]
-                ]
+        
+        let json: [String: Any] = [  "appId": "5d7ab666",
+                                     "appKey": "85168a6ba46b687d0e4642658d138b1f",
+                                     "query": "\(String(describing: self.foodNameTF.text))",
+                                     "fields": [
+                                        "item_name",
+                                        "brand_name",
+                                        "nf_calories"
+                                     ],
+                                     "sort": [
+                                        "field": "_score",
+                                        "order": "desc"
+                                     ]
+        ]
         
         var request = URLRequest(url: URL(string: "https://api.nutritionix.com/v1_1/search")!)
         request.httpMethod = "POST"
@@ -156,7 +136,7 @@ class AddEditViewController: UIViewController, CLLocationManagerDelegate{
             let max_score: Double
             let hits: [Hit]
         }
-
+        
         // MARK: - Hit
         struct Hit: Decodable {
             let _index: String
@@ -165,15 +145,15 @@ class AddEditViewController: UIViewController, CLLocationManagerDelegate{
             let _score: Double
             let fields: Fields
         }
-
+        
         // MARK: - Fields
         struct Fields: Decodable {
             let item_name: String
             let brand_name: String
             let nf_calories: Double
         }
-
-      
+        
+        
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let data = data {
@@ -183,17 +163,13 @@ class AddEditViewController: UIViewController, CLLocationManagerDelegate{
                     
                     print(searchResult.hits[0].fields)
                     DispatchQueue.main.async {
-                    self.caloriesTF.text = String (searchResult.hits[0].fields.nf_calories)
+                        self.caloriesTF.text = String (searchResult.hits[0].fields.nf_calories)
                     }
                 } catch  {
                     print(error)
                 }
             }
         }.resume()
-        
-       
-
-        
     }
     
     // Location
@@ -322,25 +298,8 @@ class AddEditViewController: UIViewController, CLLocationManagerDelegate{
                 }
                 print(descriptions)
                 self.foodNameTF.text = "\(descriptions[0])"
-                
-//                switch descriptions[0] {
-//                case "apple":
-//                    self.caloriesTF.text = "95"
-//
-//                case "banana":
-//                    self.caloriesTF.text = "105"
-//
-//                case "orange":
-//                    self.caloriesTF.text = "60"
-//
-//                default:
-//                    self.caloriesTF.text = ""
-//                }
-                
             }
-            
         }
-        
     }
     
     @IBAction func takePicture() {
