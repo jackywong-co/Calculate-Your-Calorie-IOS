@@ -27,23 +27,6 @@ class HomeViewController: UIViewController{
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     
-    func searchAndReloadTable(query:String){
-        if let managedObjectContext = self.managedObjectContext {
-            let fetchRequest = NSFetchRequest<Food>(entityName: "Food");
-            if query.count > 0 {
-                let predicate = NSPredicate(format: "name contains[cd] %@", query)
-                fetchRequest.predicate = predicate
-            }
-            do {
-                let theFoods = try managedObjectContext.fetch(fetchRequest)
-                self.foods = theFoods
-                self.tableView.reloadData()
-            } catch { }
-        }
-        
-    }
-    
-    
     @IBAction func cancel(segue : UIStoryboardSegue){
     }
     
@@ -52,14 +35,13 @@ class HomeViewController: UIViewController{
            let context = self.managedObjectContext {
             if let food = source.theFood {
                 //for edit
+                // Set all data to AddEditViewController
                 food.foodname = source.foodNameTF.text!
                 food.category = source.categoryTF.text!
                 food.calories = Double(source.caloriesTF.text!) ?? 0
-                
                 food.date = source.dataLabel.text!
                 food.time = source.timeTF.text!
                 food.location = source.locationTF.text!
-                
                 switch source.categoryTF.text! {
                 case "Grains":
                     food.image = UIImage(named: "grain")!.pngData()
@@ -74,16 +56,13 @@ class HomeViewController: UIViewController{
                 }
                 
             } else if let newFood = NSEntityDescription.insertNewObject(forEntityName: "Food", into:context) as? Food {
-                
+                // Add new food data
                 newFood.foodname = source.foodNameTF.text!
                 newFood.category = source.categoryTF.text!
                 newFood.calories = Double(source.caloriesTF.text!) ?? 0
-                
                 newFood.date = source.dataLabel.text!
                 newFood.time = source.timeTF.text!
-                
                 newFood.location = source.locationTF.text!
-                
                 switch source.categoryTF.text! {
                 case "Grains":
                     newFood.image = UIImage(named: "grain")!.pngData()
@@ -98,20 +77,69 @@ class HomeViewController: UIViewController{
                 }
                 
             };
+                //        // Add data
+                //        if let source = segue.source as? AddEditViewController{
+                //
+                //            let newFood = Food(context: self.context)
+                //
+                //            newFood.foodname = source.foodNameTF.text!
+                //            newFood.category = source.categoryTF.text!
+                //            newFood.calories = Double(source.caloriesTF.text!) ?? 0
+                //
+                //            newFood.date = source.dataLabel.text!
+                //            newFood.time = source!.timeTF.text!
+                //
+                //            newFood.location = source!.locationTF.text!
+                //            switch source!.categoryTF.text! {
+                //            case "Grains":
+                //                newFood.image = UIImage(named: "grain")!.pngData()
+                //            case "Vegetables":
+                //                newFood.image = UIImage(named: "vegetable")!.pngData()
+                //            case "Protein":
+                //                newFood.image = UIImage(named: "protein")!.pngData()
+                //            case "Fruits":
+                //                newFood.image = UIImage(named: "fruit")!.pngData()
+                //            default:
+                //                newFood.image = UIImage(named: "other")!.pngData()
+                //            }
+                //        }
+            // Save the data
             do {
-                try context.save();
+                try self.context.save();
             } catch  {
                 print("can't save");
             }
-            self.searchAndReloadTable(query: "")
+            // Re-fetch the data
+            self.fetchFood()
         }
     }
     
+    let date = Date()
+    let dateFormatter = DateFormatter()
+    var day = 0
+    
+    @IBAction func addDateButton(_ sender: Any) {
+        //        print("add")
+        day += 1
+        let modifiedDate = Calendar.current.date(byAdding: .day, value: day, to: date)!
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        print(modifiedDate)
+        self.dataLabel.text = dateFormatter.string(from: modifiedDate)
+        self.fetchFood()
+    }
+    
+    @IBAction func minusDateButton(_ sender: Any) {
+        //        print("minus")
+        day -= 1
+        let modifiedDate = Calendar.current.date(byAdding: .day, value: day, to: date)!
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        print(modifiedDate)
+        self.dataLabel.text = dateFormatter.string(from: modifiedDate)
+        self.fetchFood()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.searchAndReloadTable(query: "")
-        // Do any additional setup after loading the view.
         
         let date = Date()
         let dateFormatter = DateFormatter()
@@ -119,8 +147,8 @@ class HomeViewController: UIViewController{
         self.dataLabel.text = dateFormatter.string(from: date)
         
         
-        fetchFood()
-        
+        // fetch the tableview
+        self.fetchFood()
         
     }
     
@@ -138,11 +166,18 @@ class HomeViewController: UIViewController{
         }
     }
     
-
+    
     func fetchFood(){
+        
+        
         do{
+            
             let request = Food.fetchRequest() as NSFetchRequest<Food>
-            self.foods = try context.fetch(Food.fetchRequest())
+            request.predicate = NSPredicate(format: "date CONTAINS '\(self.dataLabel.text ?? dateFormatter.string(from: date))'")
+            request.sortDescriptors = [NSSortDescriptor(key: "time", ascending: true)]
+            
+            // Fetch the date from Core Date to display in the tableview
+            self.foods = try context.fetch(request)
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -152,6 +187,7 @@ class HomeViewController: UIViewController{
         }
     }
 }
+
 
 
 
@@ -178,21 +214,25 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         
         return cell
     }
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     
-        if editingStyle == .delete {
-            // Delete object from database
-//            let appDel:AppDelegate = UIApplication.shared.delegate as! AppDelegate
-            
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        // Delete row of food
+        let action = UIContextualAction(style: .destructive, title: "Delete") {(action,view,completionHandler) in
+            // Which food to remove
             let foodToRemove = self.foods![indexPath.row]
+            // Remove the food
             self.context.delete(foodToRemove)
+            // Save the data
             do{
-                try self.context.save()
+                try! self.context.save()
             }
-            catch {
-                
+            catch{
             }
+            // Re-fetch the data
             self.fetchFood()
         }
+        // Return swipe actions
+        return UISwipeActionsConfiguration(actions: [action])
     }
+    
 }

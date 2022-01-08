@@ -35,13 +35,19 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="vfc-IH-epP">
                                 <rect key="frame" x="20" y="88" width="374" height="65"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RL4-I7-6l5">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ggg-F9-qNT">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="65"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="RL4-I7-6l5" secondAttribute="height" multiplier="8:13" id="k2E-rB-OVt"/>
+                                            <constraint firstAttribute="width" secondItem="Ggg-F9-qNT" secondAttribute="height" multiplier="8:13" id="ApS-uD-YvX"/>
+                                            <constraint firstAttribute="width" secondItem="Ggg-F9-qNT" secondAttribute="height" multiplier="8:13" id="Gdu-Ut-FWT"/>
                                         </constraints>
-                                    </view>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="LeftButton"/>
+                                        <connections>
+                                            <action selector="minusDateButton:" destination="A8d-0C-owa" eventType="touchUpInside" id="XSr-qQ-qeM"/>
+                                            <action selector="minusDateButton:" destination="0gK-tv-Jmv" eventType="touchUpInside" id="oYx-s0-eOO"/>
+                                        </connections>
+                                    </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="S47-HI-XZL">
                                         <rect key="frame" x="51" y="0.0" width="272" height="65"/>
                                         <subviews>
@@ -65,20 +71,25 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="br2-xS-738">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="82F-yv-yJ8">
                                         <rect key="frame" x="334" y="0.0" width="40" height="65"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="br2-xS-738" secondAttribute="height" multiplier="8:13" id="MK2-nZ-nNa"/>
+                                            <constraint firstAttribute="width" secondItem="82F-yv-yJ8" secondAttribute="height" multiplier="8:13" id="KOf-ge-awJ"/>
+                                            <constraint firstAttribute="width" secondItem="82F-yv-yJ8" secondAttribute="height" multiplier="8:13" id="UCc-nH-qt0"/>
                                         </constraints>
-                                    </view>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="RightButton"/>
+                                        <connections>
+                                            <action selector="addDateButton:" destination="0gK-tv-Jmv" eventType="touchUpInside" id="YqA-J4-fi8"/>
+                                            <action selector="addDateButton:" destination="A8d-0C-owa" eventType="touchUpInside" id="h4i-lN-f6q"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="S47-HI-XZL" firstAttribute="top" secondItem="vfc-IH-epP" secondAttribute="top" id="1be-zP-pni"/>
-                                    <constraint firstItem="br2-xS-738" firstAttribute="leading" secondItem="S47-HI-XZL" secondAttribute="trailing" constant="11" id="9By-wc-pbX"/>
                                     <constraint firstAttribute="width" secondItem="vfc-IH-epP" secondAttribute="height" multiplier="374:65" id="Ana-7X-jxL"/>
-                                    <constraint firstItem="S47-HI-XZL" firstAttribute="leading" secondItem="RL4-I7-6l5" secondAttribute="trailing" constant="11" id="HOv-X9-u4i"/>
                                     <constraint firstAttribute="bottom" secondItem="S47-HI-XZL" secondAttribute="bottom" id="bsi-h9-xxb"/>
+                                    <constraint firstItem="82F-yv-yJ8" firstAttribute="width" secondItem="82F-yv-yJ8" secondAttribute="height" multiplier="8:13" id="xa6-f3-Pj8"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OMh-ee-gPi">
