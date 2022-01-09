@@ -11,6 +11,6 @@
         <attribute name="time" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Food" positionX="301.0360412597656" positionY="-1795.189880371094" width="128" height="149"/>
+        <element name="Food" positionX="-597.5944519042969" positionY="-1695.730163574219" width="110.4995422363281" height="163"/>
     </elements>
 </model>
