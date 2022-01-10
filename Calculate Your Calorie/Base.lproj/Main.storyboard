@@ -86,26 +86,15 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="S47-HI-XZL" firstAttribute="top" secondItem="vfc-IH-epP" secondAttribute="top" id="1be-zP-pni"/>
-                                    <constraint firstAttribute="width" secondItem="vfc-IH-epP" secondAttribute="height" multiplier="374:65" id="Ana-7X-jxL"/>
-                                    <constraint firstAttribute="bottom" secondItem="S47-HI-XZL" secondAttribute="bottom" id="bsi-h9-xxb"/>
-                                    <constraint firstItem="82F-yv-yJ8" firstAttribute="width" secondItem="82F-yv-yJ8" secondAttribute="height" multiplier="8:13" id="xa6-f3-Pj8"/>
+                                    <constraint firstAttribute="width" secondItem="vfc-IH-epP" secondAttribute="height" multiplier="374:65" id="iSz-Tg-KIZ"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OMh-ee-gPi">
-                                <rect key="frame" x="169.5" y="777" width="75" height="75"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="OMh-ee-gPi" secondAttribute="height" multiplier="1:1" id="kSI-db-F6K"/>
-                                </constraints>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" image="AddButton"/>
-                                <connections>
-                                    <segue destination="hFe-mw-5EF" kind="presentation" identifier="NewSegue" modalPresentationStyle="fullScreen" id="U3H-wR-QUd"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ldj-UI-cW4">
                                 <rect key="frame" x="20" y="161" width="374" height="608"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ldj-UI-cW4" secondAttribute="height" multiplier="187:304" id="lTk-uu-ci4"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="60" id="Dgo-q7-ENG" customClass="FoodTableViewCell" customModule="Calculate_Your_Calorie" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="374" height="60"/>
@@ -195,20 +184,30 @@
                                     <outlet property="delegate" destination="A8d-0C-owa" id="hCQ-C0-kIr"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OMh-ee-gPi">
+                                <rect key="frame" x="169.5" y="777" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="OMh-ee-gPi" secondAttribute="height" multiplier="1:1" id="kSI-db-F6K"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="AddButton"/>
+                                <connections>
+                                    <segue destination="hFe-mw-5EF" kind="presentation" identifier="NewSegue" modalPresentationStyle="fullScreen" id="U3H-wR-QUd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5Te-S0-6If"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="vfc-IH-epP" firstAttribute="top" secondItem="5Te-S0-6If" secondAttribute="top" id="6S6-ua-T12"/>
+                            <constraint firstItem="vfc-IH-epP" firstAttribute="centerX" secondItem="ZJH-4b-fyF" secondAttribute="centerX" id="9N7-6u-3rw"/>
                             <constraint firstItem="vfc-IH-epP" firstAttribute="top" secondItem="5Te-S0-6If" secondAttribute="top" id="9ki-eL-8EN"/>
                             <constraint firstItem="OMh-ee-gPi" firstAttribute="top" secondItem="ldj-UI-cW4" secondAttribute="bottom" constant="8" id="BML-hw-595"/>
                             <constraint firstItem="OMh-ee-gPi" firstAttribute="top" secondItem="ldj-UI-cW4" secondAttribute="bottom" constant="8" id="EWG-1x-eMv"/>
-                            <constraint firstItem="5Te-S0-6If" firstAttribute="trailing" secondItem="vfc-IH-epP" secondAttribute="trailing" constant="20" id="I49-bA-U3N"/>
-                            <constraint firstItem="vfc-IH-epP" firstAttribute="leading" secondItem="5Te-S0-6If" secondAttribute="leading" constant="20" id="TiP-DX-z6n"/>
                             <constraint firstItem="OMh-ee-gPi" firstAttribute="centerX" secondItem="ZJH-4b-fyF" secondAttribute="centerX" id="hKr-ua-gXS"/>
                             <constraint firstItem="ldj-UI-cW4" firstAttribute="top" secondItem="vfc-IH-epP" secondAttribute="bottom" constant="8" id="kpE-qm-DGc"/>
-                            <constraint firstItem="5Te-S0-6If" firstAttribute="trailing" secondItem="ldj-UI-cW4" secondAttribute="trailing" constant="20" id="p0K-St-rSZ"/>
-                            <constraint firstItem="ldj-UI-cW4" firstAttribute="leading" secondItem="5Te-S0-6If" secondAttribute="leading" constant="20" id="pWL-e5-xqN"/>
                             <constraint firstItem="5Te-S0-6If" firstAttribute="bottom" secondItem="OMh-ee-gPi" secondAttribute="bottom" constant="10" id="sOD-hK-Rsk"/>
+                            <constraint firstItem="ldj-UI-cW4" firstAttribute="centerX" secondItem="ZJH-4b-fyF" secondAttribute="centerX" id="u7k-4U-Z5g"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="27B-B7-zxB"/>
@@ -220,7 +219,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hCe-hq-hHz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-397.10144927536237" y="-328.125"/>
+            <point key="canvasLocation" x="-398.46153846153845" y="-328.43601895734594"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LmT-Ce-RvU">
