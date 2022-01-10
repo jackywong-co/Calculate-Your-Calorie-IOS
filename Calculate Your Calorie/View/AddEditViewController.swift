@@ -67,7 +67,7 @@ class AddEditViewController: UIViewController, CLLocationManagerDelegate{
         
         foodNameTF.addTarget(self, action: #selector(foodNameTFDidChange), for: UIControl.Event.editingDidEnd)
         
-        // location
+        // location setup
         if CLLocationManager.locationServicesEnabled() {
             self.locationManager = CLLocationManager();
             self.locationManager?.delegate = self;
@@ -107,10 +107,11 @@ class AddEditViewController: UIViewController, CLLocationManagerDelegate{
         return formatter.string(from: date)
     }
     
-    // api
+    // API calling
     @objc func foodNameTFDidChange(){
         print("foodNameTFDidChange ing")
         print("\(String(describing: self.foodNameTF.text))")
+        
         
         let json: [String: Any] = [  "appId": "5d7ab666",
                                      "appKey": "85168a6ba46b687d0e4642658d138b1f",
@@ -153,8 +154,6 @@ class AddEditViewController: UIViewController, CLLocationManagerDelegate{
             let nf_calories: Double
         }
         
-        
-        
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let data = data {
                 do {
@@ -171,9 +170,9 @@ class AddEditViewController: UIViewController, CLLocationManagerDelegate{
             }
         }.resume()
     }
+    // -------------------------
     
     // Location
-    
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedAlways {
             self.setupAndStartLocationManager();
@@ -187,6 +186,9 @@ class AddEditViewController: UIViewController, CLLocationManagerDelegate{
     
     func locationManager(_ manager: CLLocationManager,
                          didUpdateLocations locations: [CLLocation]) {
+        
+        
+        
         if let location = locations.last {
             
             print("\(location.coordinate.latitude)")
@@ -200,13 +202,19 @@ class AddEditViewController: UIViewController, CLLocationManagerDelegate{
             let region = MKCoordinateRegion(center: coord, span: span)
             self.mapView?.setRegion(region, animated: false);
             
+            // add point annotation
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude:location.coordinate.longitude)
+            mapView.addAnnotation(annotation)
+           
+            
             fetchCityAndCountry(from: location) { city, country, error in
                 guard let city = city, let country = country, error == nil else { return }
                 self.locationTF.text = "\(city), \(country)"
             }
         }
     }
-    
+
     func fetchCityAndCountry(from location: CLLocation, completion: @escaping (_ city: String?, _ country:  String?, _ error: Error?) -> ()) {
         CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in
             completion(placemarks?.first?.locality,
@@ -215,6 +223,9 @@ class AddEditViewController: UIViewController, CLLocationManagerDelegate{
         }
     }
     
+    // ------------------
+    
+    // Date button
     var day = 0
     
     @IBAction func addDateButton(_ sender: Any) {
@@ -234,10 +245,10 @@ class AddEditViewController: UIViewController, CLLocationManagerDelegate{
         print(modifiedDate)
         self.dataLabel.text = dateFormatter.string(from: modifiedDate)
     }
-    
+    // -------------
     
     // CoreML
-    /// - Tag: MLModelSetup
+    
     lazy var classificationRequest: VNCoreMLRequest? = {
         //TODO
         do{
@@ -256,7 +267,6 @@ class AddEditViewController: UIViewController, CLLocationManagerDelegate{
         
     }()
     
-    /// - Tag: PerformRequests
     func updateClassifications(for image: UIImage) {
         //TODO
         self.foodNameTF.text = "Classifying..."
@@ -277,10 +287,8 @@ class AddEditViewController: UIViewController, CLLocationManagerDelegate{
         
     }
     
-    /// Updates the UI with the results of the classification.
-    /// - Tag: ProcessClassifications
     func processClassifications(for request: VNRequest, error: Error?) {
-        //TODO
+        
         DispatchQueue.main.async {
             guard let results = request.results else {
                 self.foodNameTF.text = "Usable to classify image.\n\(error!.localizedDescription)"
@@ -302,6 +310,7 @@ class AddEditViewController: UIViewController, CLLocationManagerDelegate{
         }
     }
     
+    // Take photo
     @IBAction func takePicture() {
         // Show options for the source picker only if the camera is available.
         guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
@@ -324,6 +333,7 @@ class AddEditViewController: UIViewController, CLLocationManagerDelegate{
         present(photoSourcePicker, animated: true)
     }
     
+    // Photo picking
     func presentPhotoPicker(sourceType: UIImagePickerController.SourceType) {
         let picker = UIImagePickerController()
         picker.delegate = self
@@ -333,8 +343,6 @@ class AddEditViewController: UIViewController, CLLocationManagerDelegate{
     
     
 }
-
-
 
 extension AddEditViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
