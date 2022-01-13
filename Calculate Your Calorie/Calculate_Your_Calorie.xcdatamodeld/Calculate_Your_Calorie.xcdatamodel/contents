@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
-        <attribute name="calories" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21C52" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Food" representedClassName="Food" syncable="YES">
+        <attribute name="calories" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="category" optional="YES" attributeType="String"/>
         <attribute name="date" optional="YES" attributeType="String"/>
         <attribute name="foodname" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="period" optional="YES" attributeType="String"/>
+        <attribute name="image" optional="YES" attributeType="Binary"/>
+        <attribute name="location" optional="YES" attributeType="String"/>
+        <attribute name="time" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Item" positionX="301.0360412597656" positionY="-1795.189880371094" width="128" height="119"/>
+        <element name="Food" positionX="-597.5944519042969" positionY="-1695.730163574219" width="110.4995422363281" height="163"/>
     </elements>
 </model>

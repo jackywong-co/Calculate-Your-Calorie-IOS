@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		853C39D427874BEE005173E7 /* CGImagePropertyOrientation+UIImageOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C39D327874BEE005173E7 /* CGImagePropertyOrientation+UIImageOrientation.swift */; };
+		855D057B278342E5001E43A1 /* AddEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855D057A278342E5001E43A1 /* AddEditViewController.swift */; };
 		8578A1EF27819B1F004D8638 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8578A1EE27819B1F004D8638 /* AppDelegate.swift */; };
 		8578A1F127819B1F004D8638 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8578A1F027819B1F004D8638 /* SceneDelegate.swift */; };
 		8578A1F327819B1F004D8638 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8578A1F227819B1F004D8638 /* ViewController.swift */; };
@@ -17,6 +19,11 @@
 		8578A20927819B21004D8638 /* Calculate_Your_CalorieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8578A20827819B21004D8638 /* Calculate_Your_CalorieTests.swift */; };
 		8578A21327819B21004D8638 /* Calculate_Your_CalorieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8578A21227819B21004D8638 /* Calculate_Your_CalorieUITests.swift */; };
 		8578A21527819B21004D8638 /* Calculate_Your_CalorieUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8578A21427819B21004D8638 /* Calculate_Your_CalorieUITestsLaunchTests.swift */; };
+		85C813CF2784953700A54C7A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C813CE2784953700A54C7A /* HomeViewController.swift */; };
+		85C813D12784AC1000A54C7A /* FoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C813D02784AC1000A54C7A /* FoodTableViewCell.swift */; };
+		85FA2D402785F5D40099201E /* Food+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA2D3E2785F5D40099201E /* Food+CoreDataClass.swift */; };
+		85FA2D412785F5D40099201E /* Food+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA2D3F2785F5D40099201E /* Food+CoreDataProperties.swift */; };
+		85FFEFD1278C21A000679409 /* FoodClassifier.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 85FFEFD0278C21A000679409 /* FoodClassifier.mlpackage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		853C39D327874BEE005173E7 /* CGImagePropertyOrientation+UIImageOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGImagePropertyOrientation+UIImageOrientation.swift"; sourceTree = "<group>"; };
+		855D057A278342E5001E43A1 /* AddEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditViewController.swift; sourceTree = "<group>"; };
 		8578A1EB27819B1F004D8638 /* Calculate Your Calorie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calculate Your Calorie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8578A1EE27819B1F004D8638 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8578A1F027819B1F004D8638 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +60,11 @@
 		8578A20E27819B21004D8638 /* Calculate Your CalorieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Calculate Your CalorieUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8578A21227819B21004D8638 /* Calculate_Your_CalorieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculate_Your_CalorieUITests.swift; sourceTree = "<group>"; };
 		8578A21427819B21004D8638 /* Calculate_Your_CalorieUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculate_Your_CalorieUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		85C813CE2784953700A54C7A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		85C813D02784AC1000A54C7A /* FoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTableViewCell.swift; sourceTree = "<group>"; };
+		85FA2D3E2785F5D40099201E /* Food+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Food+CoreDataClass.swift"; path = "../../Food+CoreDataClass.swift"; sourceTree = "<group>"; };
+		85FA2D3F2785F5D40099201E /* Food+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Food+CoreDataProperties.swift"; path = "../../Food+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		85FFEFD0278C21A000679409 /* FoodClassifier.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = FoodClassifier.mlpackage; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +92,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		855D057327833AFC001E43A1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				85C813D02784AC1000A54C7A /* FoodTableViewCell.swift */,
+				85C813CE2784953700A54C7A /* HomeViewController.swift */,
+				855D057A278342E5001E43A1 /* AddEditViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		855D0582278346DC001E43A1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				85FA2D3E2785F5D40099201E /* Food+CoreDataClass.swift */,
+				85FA2D3F2785F5D40099201E /* Food+CoreDataProperties.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		8578A1E227819B1F004D8638 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +134,10 @@
 		8578A1ED27819B1F004D8638 /* Calculate Your Calorie */ = {
 			isa = PBXGroup;
 			children = (
+				85FFEFD0278C21A000679409 /* FoodClassifier.mlpackage */,
+				853C39D327874BEE005173E7 /* CGImagePropertyOrientation+UIImageOrientation.swift */,
+				855D0582278346DC001E43A1 /* Model */,
+				855D057327833AFC001E43A1 /* View */,
 				8578A1EE27819B1F004D8638 /* AppDelegate.swift */,
 				8578A1F027819B1F004D8638 /* SceneDelegate.swift */,
 				8578A1F227819B1F004D8638 /* ViewController.swift */,
@@ -263,8 +300,15 @@
 			files = (
 				8578A1F327819B1F004D8638 /* ViewController.swift in Sources */,
 				8578A1F927819B1F004D8638 /* Calculate_Your_Calorie.xcdatamodeld in Sources */,
+				855D057B278342E5001E43A1 /* AddEditViewController.swift in Sources */,
+				85C813D12784AC1000A54C7A /* FoodTableViewCell.swift in Sources */,
+				85FFEFD1278C21A000679409 /* FoodClassifier.mlpackage in Sources */,
 				8578A1EF27819B1F004D8638 /* AppDelegate.swift in Sources */,
+				85FA2D412785F5D40099201E /* Food+CoreDataProperties.swift in Sources */,
 				8578A1F127819B1F004D8638 /* SceneDelegate.swift in Sources */,
+				85FA2D402785F5D40099201E /* Food+CoreDataClass.swift in Sources */,
+				85C813CF2784953700A54C7A /* HomeViewController.swift in Sources */,
+				853C39D427874BEE005173E7 /* CGImagePropertyOrientation+UIImageOrientation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +352,7 @@
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		8578A1FC27819B21004D8638 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -371,7 +416,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -426,7 +471,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -451,16 +496,19 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Jacky-Wong.Calculate-Your-Calorie";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 15.0;
 			};
 			name = Debug;
 		};
@@ -479,16 +527,19 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Jacky-Wong.Calculate-Your-Calorie";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 15.0;
 			};
 			name = Release;
 		};

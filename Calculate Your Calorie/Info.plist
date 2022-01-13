@@ -2,8 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>h</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>a</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>a</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>a</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
+		<key>NSLocationWhenInUseUsageDescription</key>
+		<false/>
 		<key>UIApplicationSupportsMultipleScenes</key>
 		<false/>
 		<key>UISceneConfigurations</key>
